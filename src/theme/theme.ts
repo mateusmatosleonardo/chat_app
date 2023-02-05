@@ -11,9 +11,9 @@ export const theme = {
     YELLOW: "#e9ba0e",
   },
   fonts: {
-    Montserrat_Regular: "Montserrat_400Regular",
-    Montserrat_Medium: "Montserrat_500Medium",
-    Montserrat_SemiBold: "Montserrat_600SemiBold",
-    Montserrat_Bold: "Montserrat_700Bold",
+    Poppins_Regular: "Poppins_400Regular",
+    Poppins_Medium: "Poppins_500Medium",
+    Poppins_SemiBold: "Poppins_600SemiBold",
+    Poppins_Bold: "Poppins_700Bold",
   },
 };
