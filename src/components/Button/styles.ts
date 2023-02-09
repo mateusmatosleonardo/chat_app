@@ -7,6 +7,8 @@ export const Title = styled.Text`
   font-size: ${RFValue(16)}px;
 `;
 
+export const ActivityIndicator = styled.ActivityIndicator``;
+
 export const style = StyleSheet.create({
   button: {
     justifyContent: "center",
