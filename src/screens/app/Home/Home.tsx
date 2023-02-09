@@ -10,6 +10,8 @@ import { FlatList, ListRenderItemInfo } from 'react-native';
 
 export function Home() {
 
+  const [search, setSearch] = useState('');
+
   const [chats, setChats] = useState<IChat[]>([
     {
       id: '19de3ed4-12d1-4600-be92-418994e70118',
@@ -45,6 +47,10 @@ export function Home() {
     },
   ]);
 
+  const filteredChat = search.length > 0
+    ? chats.filter(chat => chat.username.includes(search))
+    : [];
+
   function renderItem({ item }: ListRenderItemInfo<IChat>) {
     return <Chat {...item} />
   }
@@ -60,15 +66,22 @@ export function Home() {
 
       <S.WrapperSearch>
         <Search
+          value={search}
+          onChangeText={setSearch}
           placeholder='Pesquisar conversar'
         />
       </S.WrapperSearch>
 
-      <FlatList
+      {search.length > 0 ? <FlatList
+        data={filteredChat}
+        keyExtractor={item => item.id}
+        renderItem={renderItem}
+      /> : <FlatList
         data={chats}
         keyExtractor={item => item.id}
         renderItem={renderItem}
-      />
+      />}
+
     </S.Container>
   );
 }
