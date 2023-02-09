@@ -5,10 +5,22 @@ import * as S from './styles';
 
 import EnterIcon from '@expo/vector-icons/Ionicons';
 
-export function Button({ style, title, colorTitle, hasIcon }: IButton) {
+export function Button({
+  onPress,
+  style,
+  title,
+  colorTitle,
+  hasIcon,
+  disabled,
+  loading }: IButton) {
   return (
-    <Pressable style={style}>
-      <S.Title style={{ color: colorTitle }}>{title}</S.Title>
+    <Pressable
+      onPress={onPress}
+      style={style}
+      disabled={disabled}
+    >
+      {loading ? <S.ActivityIndicator color="#010101" size="small" /> : <S.Title style={{ color: colorTitle }}>{title}</S.Title>}
+
       {hasIcon ?
         <EnterIcon
           name='enter-outline'
