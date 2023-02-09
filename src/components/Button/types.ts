@@ -8,4 +8,6 @@ export interface IButton {
   title?: string;
   colorTitle?: string;
   hasIcon?: boolean;
+  disabled?: boolean;
+  loading?: boolean;
 }
