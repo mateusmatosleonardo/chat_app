@@ -6,10 +6,16 @@ export interface IUser {
   password: string;
 }
 
+export interface SignInForm {
+  username: string;
+  password: string;
+}
+
 export interface IAuthContext {
   loading: boolean;
   setLoading: (loading: boolean) => void;
-  handleSignUp: (user: IUser) => Promise<void>;
+  handleSignIn: (user: SignInForm) => Promise<{ token: string }>;
+  handleSignUp: (user: IUser) => Promise<any>;
 }
 
 export interface AuthContextProps {
