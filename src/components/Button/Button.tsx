@@ -19,7 +19,7 @@ export function Button({
       style={style}
       disabled={disabled}
     >
-      {loading ? <S.ActivityIndicator color="#010101" size="small" /> : <S.Title style={{ color: colorTitle }}>{title}</S.Title>}
+      {loading ? <S.ActivityIndicator color="#ffffff" size="small" /> : <S.Title style={{ color: colorTitle }}>{title}</S.Title>}
 
       {hasIcon ?
         <EnterIcon
