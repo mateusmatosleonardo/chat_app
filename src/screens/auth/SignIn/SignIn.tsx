@@ -20,23 +20,41 @@ import { style as styleBtn } from '../../../components/Button/styles';
 import LottieView from 'lottie-react-native';
 import Chat from '../../../assets/chat.json';
 
-// context
-import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
-
 // types
 import { signInScreenProp } from './types';
+import { useAuth } from '../../../hooks/useAuth';
+import { SignInForm } from '../../../contexts/AuthContext/types';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function SignIn() {
 
+  const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const navigation = useNavigation<signInScreenProp>();
+  const auth = useAuth();
 
-  const { loading, handleSignIn } = useContext(AuthContext);
+  const navigation = useNavigation<signInScreenProp>();
 
   const { control, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   });
+
+  async function handleSignIn(user: SignInForm): Promise<{ token: string }> {
+    setLoading(true);
+    try {
+      const data = await auth.handleSignIn(user);
+      setLoading(false);
+      if (data.token) {
+        await AsyncStorage.setItem('token', JSON.stringify(data.token));
+      }
+      navigation.navigate('Home');
+      return data;
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+      return { token: '' }
+    }
+  }
 
   return (
     <S.Container behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
@@ -89,7 +107,7 @@ export function SignIn() {
           <Button
             title='Entrar'
             colorTitle='#ffffff'
-            hasIcon={true}
+            hasIcon={loading ? false : true}
             style={[styleBtn.buttonWithIcon,
             {
               opacity: errors.username
