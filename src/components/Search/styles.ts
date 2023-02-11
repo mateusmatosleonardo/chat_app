@@ -9,6 +9,7 @@ export const Search = styled.View`
   width: 100%;
   border-radius: 12px;
   margin-top: 12px;
+  margin-bottom: 28px;
   background-color: ${({ theme }) => theme.colors.WHITE_SECONDARY};
 `;
 
