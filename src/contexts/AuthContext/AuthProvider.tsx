@@ -1,28 +1,20 @@
 import { useState } from "react";
-import { api } from "../../service/api";
+import { useAuth } from "../../hooks/useAuth";
 import { AuthContext } from "./AuthContext"
-import { AuthContextProps, IUser, SignInForm } from "./types"
+import { AuthContextProps, IUser } from "./types"
 
 export const AuthContextProvider = ({ children }: AuthContextProps) => {
 
   const [loading, setLoading] = useState(false);
 
-  async function handleSignIn(user: SignInForm): Promise<any> {
-    setLoading(true);
-    try {
-      await api.post('/auth/login', user);
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      console.log(error);
-    }
-  }
+  const auth = useAuth();
 
   async function handleSignUp(user: IUser): Promise<any> {
     setLoading(true);
     try {
-      await api.post('/auth/register', user);
+      const data = await auth.handleSignUp(user);
       setLoading(false);
+      return data;
     } catch (error) {
       setLoading(false);
       console.log(error);
@@ -34,7 +26,6 @@ export const AuthContextProvider = ({ children }: AuthContextProps) => {
       value={{
         loading,
         setLoading,
-        handleSignIn,
         handleSignUp
       }}
     >
