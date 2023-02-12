@@ -10,6 +10,7 @@ export function useFetch<T = unknown>(url: string) {
       .get(url)
       .then((response) => {
         setData(response.data);
+        setIsFetching(false);
       })
       .finally(() => {
         setIsFetching(false);
