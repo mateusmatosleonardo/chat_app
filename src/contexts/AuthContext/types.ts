@@ -14,7 +14,6 @@ export interface SignInForm {
 export interface IAuthContext {
   loading: boolean;
   setLoading: (loading: boolean) => void;
-  // handleSignIn: (user: SignInForm) => Promise<{ token: string }>;
   handleSignUp: (user: IUser) => Promise<any>;
 }
 
