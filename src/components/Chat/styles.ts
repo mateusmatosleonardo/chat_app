@@ -6,7 +6,7 @@ interface StyleProps {
   backgroundPicture?: string;
 }
 
-export const Container = styled.View`
+export const Container = styled.Pressable`
   flex-direction: row;
   width: 100%;
   padding: 0px 22px;
