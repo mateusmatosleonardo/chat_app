@@ -1,29 +1,32 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-// components 📦
+// COMPONENTS
 import { Input } from '../../../components/Input/Input';
 import { Button } from '../../../components/Button/Button';
 
-// form 
+// FORM 
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './schema';
 
-// styles 🎨
+// STYLES 
 import * as S from './styles';
 import { style } from '../../../components/Input/styles';
 import { style as styleBtn } from '../../../components/Button/styles';
 
-// logo
+// LOGO
 import LottieView from 'lottie-react-native';
 import Chat from '../../../assets/chat.json';
 
-// types
-import { signInScreenProp } from './types';
+// TYPES
+import { SignInForm, SignInScreenProp } from './types';
+
+// CUSTOM HOOK
 import { useAuth } from '../../../hooks/useAuth';
-import { SignInForm } from '../../../contexts/AuthContext/types';
+
+// STORAGE
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function SignIn() {
@@ -33,7 +36,7 @@ export function SignIn() {
 
   const auth = useAuth();
 
-  const navigation = useNavigation<signInScreenProp>();
+  const navigation = useNavigation<SignInScreenProp>();
 
   const { control, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
@@ -67,18 +70,18 @@ export function SignIn() {
       <S.Form>
         <Controller
           control={control}
-          name="username"
+          name="email"
           render={({ field: { value, onChange } }) => (
             <Input
               value={value}
               onChangeText={onChange}
               hasIcon={false}
-              placeholder='Usuário'
+              placeholder='E-mail'
               style={style.input}
             />
           )}
         />
-        {errors.username && <S.TextError>{errors.username?.message as string}</S.TextError>}
+        {errors.email && <S.TextError>{errors.email?.message as string}</S.TextError>}
         <Controller
           control={control}
           name='password'
