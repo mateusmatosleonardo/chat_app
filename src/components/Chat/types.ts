@@ -1,13 +1,11 @@
-import { ImageSourcePropType } from "react-native";
-
 export interface IChat {
   id: string;
   status: "on" | "off";
   participant: string;
   lastMessage: string;
   lastMessageTime: string;
-  picture?: ImageSourcePropType;
   colors?: string;
+  onPress: () => void;
 }
 
 export interface IMessage {
