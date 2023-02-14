@@ -2,48 +2,59 @@ import React, { useState, useContext } from 'react';
 import { Keyboard, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-// components 📦
+// COMPONENTS
 import { Input } from '../../../components/Input/Input';
 import { Button } from '../../../components/Button/Button';
 
-// styles 🎨
+// STYLES 
 import * as S from './styles';
 import { style } from '../../../components/Input/styles';
 import { style as styleBtn } from '../../../components/Button/styles';
 
-// icons
+// ICONS
 import Chat from '../../../assets/chat.json';
 import LottieView from 'lottie-react-native';
 
-// form 
+// FORM 
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './schema';
 
-// contexts
-import { AuthContext } from '../../../contexts/AuthContext/AuthContext';
+// TYPES
+import { SignUpForm, SignUpResponse, SingUpScreenProp } from '../../../utils/globalTypes';
 
-// types
-import { singUpScreenProp } from './types';
+// CUSTOM HOOK
+import { useAuth } from '../../../hooks/useAuth';
 
 export function SignUp() {
 
+  const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const { loading, handleSignUp } = useContext(AuthContext);
+  const auth = useAuth();
 
-  const navigation = useNavigation<singUpScreenProp>();
+  const navigation = useNavigation<SingUpScreenProp>();
 
-  const { control, handleSubmit, formState: { errors } } = useForm({
+  const { control, handleSubmit, setValue, formState: { errors } } = useForm({
     resolver: yupResolver(schema)
   });
 
+  async function handleSignUp(user: SignUpForm): Promise<SignUpResponse | null> {
+    setLoading(true);
+    try {
+      const data = await auth.handleSignUp(user);
+      navigation.navigate('Home');
+      setLoading(false);
+      return data;
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+      return null
+    }
+  };
 
   return (
-    <S.Container
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-    // keyboardVerticalOffset={Platform.OS === 'ios' ? 120 : 20}
-    >
+    <S.Container behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <LottieView
         source={Chat}
         style={{ width: 250, height: 250 }}
@@ -61,7 +72,7 @@ export function SignUp() {
               hasIcon={true}
               placeholder='Usuário'
               style={style.input}
-              onPress={() => console.log('Testando')}
+              onPress={() => setValue("username", "")}
             />
           )}
         />
