@@ -13,7 +13,7 @@ export function Routes() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="SignIn" screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Home" component={Home} options={{ gestureEnabled: false }} />
         <Stack.Screen name="Chat" component={Chat} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="SignUp" component={SignUp} />
