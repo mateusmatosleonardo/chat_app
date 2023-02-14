@@ -1,32 +1,17 @@
 import React, { useState } from 'react';
 import { Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
-// COMPONENTS
 import { Input } from '../../../components/Input/Input';
 import { Button } from '../../../components/Button/Button';
-
-// FORM 
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { schema } from './schema';
-
-// STYLES 
 import * as S from './styles';
 import { style } from '../../../components/Input/styles';
 import { style as styleBtn } from '../../../components/Button/styles';
-
-// LOGO
-import LottieView from 'lottie-react-native';
-import Chat from '../../../assets/chat.json';
-
-// TYPES
-import { SignInForm, SignInScreenProp } from './types';
-
-// CUSTOM HOOK
+import Logo from '../../../assets/logo.png';
+import { SignInForm, SignInScreenProp } from '../../../utils/globalTypes';
 import { useAuth } from '../../../hooks/useAuth';
-
-// STORAGE
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function SignIn() {
@@ -61,16 +46,16 @@ export function SignIn() {
 
   return (
     <S.Container behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-      <LottieView
-        source={Chat}
-        style={{ width: 250, height: 250 }}
-        autoPlay={false}
-        loop={false}
-      />
+      <S.WrapperLogo>
+        <S.Logo
+          source={Logo}
+          resizeMode="contain"
+        />
+      </S.WrapperLogo>
       <S.Form>
         <Controller
           control={control}
-          name="email"
+          name="user"
           render={({ field: { value, onChange } }) => (
             <Input
               value={value}
@@ -81,7 +66,7 @@ export function SignIn() {
             />
           )}
         />
-        {errors.email && <S.TextError>{errors.email?.message as string}</S.TextError>}
+        {errors.user && <S.TextError>{errors.user?.message as string}</S.TextError>}
         <Controller
           control={control}
           name='password'
