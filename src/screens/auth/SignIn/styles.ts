@@ -27,3 +27,15 @@ export const TextError = styled.Text`
   color: ${({ theme }) => theme.colors.RED};
   padding-top: 5px;
 `;
+
+export const WrapperLogo = styled.View`
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 180px;
+`;
+
+export const Logo = styled.Image`
+  width: 150px;
+  height: 150px;
+`;
