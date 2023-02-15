@@ -8,6 +8,18 @@ export const Container = styled.KeyboardAvoidingView`
   background-color: ${({ theme }) => theme.colors.GRAY};
 `;
 
+export const WrapperLogo = styled.View`
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 180px;
+`;
+
+export const Logo = styled.Image`
+  width: 150px;
+  height: 150px;
+`;
+
 export const Form = styled.Pressable`
   width: 100%;
   padding: 36px 30px 50px 30px;
