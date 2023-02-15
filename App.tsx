@@ -11,6 +11,7 @@ import {
   Poppins_700Bold
 } from '@expo-google-fonts/poppins';
 import { AuthContextProvider } from './src/contexts/AuthContext/AuthProvider';
+import { SocketContextProvider } from './src/contexts/SocketContext/SocketProvider';
 
 export default function App() {
 
@@ -27,10 +28,12 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <AuthContextProvider>
-        <StatusBar style="auto" />
-        <Routes />
-      </AuthContextProvider>
+      <SocketContextProvider>
+        <AuthContextProvider>
+          <StatusBar style="auto" />
+          <Routes />
+        </AuthContextProvider>
+      </SocketContextProvider>
     </ThemeProvider>
   );
 }
