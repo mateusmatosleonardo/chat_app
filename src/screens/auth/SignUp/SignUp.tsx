@@ -1,5 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Keyboard, Platform } from 'react-native';
+
+// NAVIGATION
 import { useNavigation } from '@react-navigation/native';
 
 // COMPONENTS
@@ -12,8 +14,7 @@ import { style } from '../../../components/Input/styles';
 import { style as styleBtn } from '../../../components/Button/styles';
 
 // ICONS
-import Chat from '../../../assets/chat.json';
-import LottieView from 'lottie-react-native';
+import Logo from '../../../assets/logo.png';
 
 // FORM 
 import { useForm, Controller } from 'react-hook-form';
@@ -55,12 +56,12 @@ export function SignUp() {
 
   return (
     <S.Container behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-      <LottieView
-        source={Chat}
-        style={{ width: 250, height: 250 }}
-        autoPlay={false}
-        loop={false}
-      />
+      <S.WrapperLogo>
+        <S.Logo
+          source={Logo}
+          resizeMode="contain"
+        />
+      </S.WrapperLogo>
       <S.Form onPress={Keyboard.dismiss}>
         <Controller
           control={control}
