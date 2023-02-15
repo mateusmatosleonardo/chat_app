@@ -26,3 +26,15 @@ export const WrapperSearch = styled.View`
   width: 100%;
   padding: 0px 22px;
 `;
+
+export const EmptyList = styled.View`
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const EmptyListMessage = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.Poppins_Medium};
+  font-size: ${RFValue(16)}px;
+  color: ${({ theme }) => theme.colors.BLACK};
+`;
