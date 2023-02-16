@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useAuth } from "../../hooks/useAuth";
 import { AuthContext } from "./AuthContext"
 import { AuthContextProps } from "./types"
 
