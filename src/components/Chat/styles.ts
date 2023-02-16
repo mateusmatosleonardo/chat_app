@@ -19,10 +19,10 @@ export const WrapperPicture = styled.View<StyleProps>`
   width: 62px;
   height: 62px;
   border-radius: 62 / 2;
-  background-color: ${(props) => props.backgroundPicture};
+  background-color: #dedede;
 `;
 
-export const Picture = styled.ImageBackground`
+export const Picture = styled.Image`
   width: 62px;
   height: 62px;
 `;
@@ -35,7 +35,6 @@ export const Status = styled.View<StyleProps>`
   position: absolute;
   bottom: 0px;
   right: 0px;
-  background-color: ${(props) => props.color};
 `;
 
 export const WrapperMain = styled.View`
