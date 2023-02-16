@@ -6,6 +6,7 @@ export const api = axios.create({
   baseURL: API_URL,
 });
 
+// TODO: Refatorar a forma de pegar o token
 api.interceptors.request.use(async (config: InternalAxiosRequestConfig) => {
   const token: string = await getToken();
   console.log(`Token -> ${token}`);
