@@ -1,6 +1,5 @@
 export interface IChat {
   id: string;
-  status: "on" | "off";
   participant: string;
   lastMessage: string;
   lastMessageTime: string;
