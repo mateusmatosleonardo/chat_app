@@ -33,7 +33,7 @@ export function SignIn() {
       const data = await auth.handleSignIn(user);
       setLoading(false);
       if (data.token) {
-        await AsyncStorage.setItem('token', JSON.stringify(data.token));
+        await AsyncStorage.setItem('token', JSON.stringify({ token: data.token }));
       }
       navigation.navigate('Home');
       return data;
