@@ -1,4 +1,4 @@
-import { IUser, SignInForm } from "../contexts/AuthContext/types";
+import { SignInForm, SignUpForm, SignUpResponse } from "../utils/globalTypes";
 import { api } from "../service/api";
 
 export const useAuth = () => ({
@@ -6,7 +6,7 @@ export const useAuth = () => ({
     const response = await api.post("/auth/login", user);
     return response.data;
   },
-  handleSignUp: async (user: IUser): Promise<any> => {
+  handleSignUp: async (user: SignUpForm): Promise<SignUpResponse | null> => {
     const response = await api.post("/auth/register", user);
     return response.data;
   },
