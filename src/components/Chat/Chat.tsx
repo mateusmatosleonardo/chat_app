@@ -5,35 +5,14 @@ import { IChat } from './types';
 
 import Person from '../../assets/person.png';
 
-const statusColor = {
-  active: '#1eaf0a',
-  inactive: '#c4c4c4'
-}
-
-export function Chat({ status, participant, lastMessage, lastMessageTime, colors, onPress }: IChat) {
+export function Chat({ participant, lastMessage, lastMessageTime, onPress }: IChat) {
   return (
     <S.Container onPress={onPress}>
 
-      <S.WrapperPicture
-        backgroundPicture={colors}
-      >
+      <S.WrapperPicture>
         <S.Picture
           source={Person}
-          imageStyle={{
-            borderRadius: 62 / 2,
-            resizeMode: 'center'
-          }}
-        >
-          <S.Status
-            color={status === 'on' ? statusColor.active : statusColor.inactive}
-            style={{
-              shadowColor: '#313030',
-              shadowOffset: { width: 0, height: 1 },
-              shadowOpacity: 0.2,
-              shadowRadius: 2,
-            }}
-          />
-        </S.Picture>
+        />
       </S.WrapperPicture>
       <S.WrapperMain>
 
