@@ -1,17 +1,14 @@
-import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
-import { FlatList, ListRenderItemInfo, Platform, View } from 'react-native';
-import * as S from './styles';
-
-import Icon from '@expo/vector-icons/MaterialIcons';
-import Person from '../../../assets/person.png';
-
-import { IMessage, RootStackParamsList } from '../../../utils/globalTypes';
-import { useFetch } from '../../../hooks/useFetch';
-import { IUser } from '../../../utils/globalTypes';
-import { IGetAllChats } from '../../../components/Chat/types';
-import { Loading } from '../../../components/Loading/Loading';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { FlatList, ListRenderItemInfo, Platform } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
+import { Loading } from '../../../components/Loading/Loading';
+import { IGetAllChats } from '../../../components/Chat/types';
+import { IUser, IMessage, RootStackParamsList } from '../../../utils/globalTypes';
 import { SocketContext } from '../../../contexts/SocketContext/SocketContext';
+import Icon from '@expo/vector-icons/FontAwesome';
+import Person from '../../../assets/person.png';
+import { useFetch } from '../../../hooks/useFetch';
+import * as S from './styles';
 
 export function Chat() {
 
@@ -44,7 +41,7 @@ export function Chat() {
             <S.WrapperMessage
               justifyContent={senderIsMe(user, item) ? 'flex-end' : 'flex-start'}
               alignItems=''
-              backgroundMessage={senderIsMe(user, item) ? '#dcdcdc' : '#ffd2db'}
+              backgroundMessage={senderIsMe(user, item) ? '#ffc72d' : '#dcdcdc'}
             >
               <S.Message
                 participant={senderIsMe(user, item) ? 'right' : 'left'}
@@ -59,7 +56,7 @@ export function Chat() {
             <S.WrapperMessage
               justifyContent={senderIsMe(user, item) ? 'flex-end' : 'flex-start'}
               alignItems=''
-              backgroundMessage={senderIsMe(user, item) ? '#dcdcdc' : '#f5dc9e'}
+              backgroundMessage={senderIsMe(user, item) ? '#ffc72d' : '#dcdcdc'}
             >
               <S.Message
                 participant={senderIsMe(user, item) ? 'left' : 'left'}
@@ -175,13 +172,14 @@ export function Chat() {
                 style={{ height: inputHeight }}
               />
             </S.WrapperInput>
-            <S.Touch onPress={() => handleSendMessage(message)}>
-              {sending ?
-                (<S.LoadingContainer style={{ padding: 2 }}>
-                  <Loading />
-                </S.LoadingContainer>)
-                : <Icon name='send' color='#f7ad54' size={24} />}
-            </S.Touch>
+            {sending ?
+              (<S.LoadingContainer style={{ padding: 0 }}>
+                <Loading />
+              </S.LoadingContainer>) :
+              <S.Touch onPress={() => handleSendMessage(message)}>
+                <Icon name='send' color='#ffc72d' size={24} />
+              </S.Touch>}
+
           </S.KeyboardAvoidingView>
         </S.Container>
         :
