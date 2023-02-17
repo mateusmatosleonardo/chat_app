@@ -20,5 +20,8 @@ Integrated with microservices system.
 - Data fetching:
   - axios
   - socket.io-client
+- Fonts
+  - expo-font
+  - expo-google-fonts
 - Stylization:
   - styled-components
