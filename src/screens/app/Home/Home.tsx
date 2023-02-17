@@ -1,22 +1,15 @@
 import React, { useState } from 'react';
-
 import { FlatList, ListRenderItemInfo } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-
-import * as S from './styles';
-
 import { Search } from '../../../components/Search/Search';
 import { Chat } from '../../../components/Chat/Chat';
 import { Loading } from '../../../components/Loading/Loading';
-
 import { IGetAllChats } from '../../../components/Chat/types';
-import { HomeScreenProp } from '../../../utils/globalTypes';
-import { IUser } from '../../../utils/globalTypes';
-
+import { HomeScreenProp, IUser } from '../../../utils/globalTypes';
+import { useFetch } from '../../../hooks/useFetch';
 import Edit from '@expo/vector-icons/Feather';
 import Icon from '@expo/vector-icons/Ionicons';
-
-import { useFetch } from '../../../hooks/useFetch';
+import * as S from './styles';
 
 export function Home() {
 
