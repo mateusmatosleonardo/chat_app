@@ -20,3 +20,5 @@ Integrated with microservices system.
 - Data fetching:
   - axios
   - socket.io-client
+- Stylization:
+  - styled-components
