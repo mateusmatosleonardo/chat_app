@@ -2,11 +2,11 @@
 
 <!-- icon-->
 
-| Biblioteca   | Framework | Linguagem             | Plataformas    |
+| Library      | Framework | Language              | Platforms      |
 | ------------ | --------- | --------------------- | -------------- |
 | React-native | Expo      | JavaScript/TypeScript | [Android, IOS] |
 
-## Introdução
+## Introduction
 
 This project is a chat application, with real-time messaging.
 <br/>
