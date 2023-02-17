@@ -1,6 +1,6 @@
-# chat_app
+# Chat App
 
-<!-- icon-->
+![logo-chat-app-gh](https://user-images.githubusercontent.com/73812069/219540142-ff76779f-5441-4bed-86db-9baebd09309f.png)
 
 | Library      | Framework | Language              | Platforms      |
 | ------------ | --------- | --------------------- | -------------- |
@@ -20,8 +20,19 @@ Integrated with microservices system.
 - Data fetching:
   - axios
   - socket.io-client
-- Fonts
+- Fonts:
+  - react-native-responsive-fontsize
   - expo-font
   - expo-google-fonts
+- Security:
+  - react-native-dotenv
+- Data persistence:
+  - react-native-async-storage/async-storage
+- Context:
+  - context API
+- Icons:
+  - expo/vector-icons
 - Stylization:
   - styled-components
+- Others:
+  - custom hooks
