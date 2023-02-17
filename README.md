@@ -1,16 +1,18 @@
-# Chat App
-
 ![logo-chat-app-gh](https://user-images.githubusercontent.com/73812069/219540142-ff76779f-5441-4bed-86db-9baebd09309f.png)
 
 | Library      | Framework | Language              | Platforms      |
 | ------------ | --------- | --------------------- | -------------- |
-| React-native | Expo      | JavaScript/TypeScript | [Android, IOS] |
+| React-native | Expo      | JavaScript/TypeScript | [Android, iOS] |
 
-## Introduction
+## Introduction to the application
 
 This project is a chat application, with real-time messaging.
 <br/>
 Integrated with microservices system.
+
+## Introduction to microservices
+
+![microservice](https://user-images.githubusercontent.com/73812069/219541081-3d4b1235-8882-4fa7-9257-c87cd3568a83.png)
 
 ## Used libs
 - Form validation:
