@@ -8,14 +8,15 @@
 
 ## Introdução
 
-Este projeto se trata de um aplicativo de chat, com trocas de mensagens em tempo real.
+This project is a chat application, with real-time messaging.
 <br/>
-Integrado com sistema de microsserviços
+Integrated with microservices system.
 
-## Libs usadas
-- Validação de formulários:
+## Used libs
+- Form validation:
   - react-hook-form
   - hookform/resolvers
   - yup
 - Data fetching:
   - axios
+  - socket.io-client
