@@ -18,7 +18,7 @@ export const WrapperPicture = styled.View<StyleProps>`
   align-items: center;
   width: 62px;
   height: 62px;
-  border-radius: 62 / 2;
+  border-radius: 62px / 2px;
   background-color: #dedede;
 `;
 
@@ -30,7 +30,7 @@ export const Picture = styled.Image`
 export const Status = styled.View<StyleProps>`
   width: 20px;
   height: 20px;
-  border-radius: 20 / 2;
+  border-radius: 20px / 2px;
   border: 3px solid #ffffff;
   position: absolute;
   bottom: 0px;
