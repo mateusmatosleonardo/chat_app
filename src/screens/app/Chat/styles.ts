@@ -51,10 +51,6 @@ export const Input = styled.TextInput`
   font-size: ${RFValue(14)}px;
 `;
 
-export const Touch = styled.Pressable`
-  padding: 4px;
-`;
-
 export const Header = styled.View`
   flex-direction: row;
   padding: 20px;
@@ -66,7 +62,7 @@ export const WrapperPicture = styled.View<StyleProps>`
   align-items: center;
   width: 62px;
   height: 62px;
-  border-radius: 62 / 2;
+  border-radius: 62px / 2px;
   background-color: #dedede;
 `;
 
@@ -112,6 +108,13 @@ export const Message = styled.Text<ContainerProp>`
   text-align: ${(props) => props.alignItems};
 `;
 
+export const Touch = styled.Pressable`
+  justify-content: center;
+  align-items: center;
+  width: 34px;
+  height: 34px;
+`;
+
 export const LoadingContainer = styled.View`
-  padding: 2px;
+  padding: 5px 7.1px;
 `;
